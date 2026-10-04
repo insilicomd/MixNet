@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mixture-lco"
+version = "0.1.0"
+description = "Portable MixNet and descriptive matched leave-compound-out evaluation"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+dependencies = ["numpy>=2,<3", "torch>=2.4,<3"]
+
+[project.urls]
+Repository = "https://github.com/insilicomd/MixNet"
+Issues = "https://github.com/insilicomd/MixNet/issues"
+
+[project.optional-dependencies]
+dev = ["ruff>=0.9,<1", "mypy>=1.14,<2", "build>=1,<2"]
+
+[project.scripts]
+mixture-lco = "mixture_lco.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+packages = ["mixture_lco"]
+include-package-data = false
+
+[tool.setuptools.package-data]
+mixture_lco = ["presets/paper.json", "presets/smoke.json", "py.typed"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true

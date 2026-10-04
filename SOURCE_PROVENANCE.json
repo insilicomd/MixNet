@@ -1,0 +1,40 @@
+{
+  "origin": "DeepChameleon author-authorized public adaptation",
+  "files": [
+    {
+      "source_module": "deepchameleon/models/mixnet.py",
+      "original_sha256": "334f1d5be52718772091e52480f987677ea843907171a4c3d588012e51047d2d",
+      "package_file": "src/mixture_lco/mixnet.py",
+      "extracted_sha256": "334f1d5be52718772091e52480f987677ea843907171a4c3d588012e51047d2d",
+      "adaptations": []
+    },
+    {
+      "source_module": "deepchameleon/training/train.py",
+      "original_sha256": "7488d27c1a4b1849c2d6f2211184daf9b424991780948a4bc6ae4bf07f2fc4bd",
+      "package_file": "src/mixture_lco/train.py",
+      "extracted_sha256": "6e0d963d29bf5326e27985ddfb86489a574a3bb757aadcfd8829476fb7bf8ddd",
+      "adaptations": [
+        [
+          "from deepchameleon.features.composition import ComponentFeatureSet",
+          "from mixture_lco.features import ComponentFeatureSet"
+        ],
+        [
+          "from deepchameleon.inverse_design.resident_scorer import InferenceTimingObserver",
+          "from mixture_lco.features import InferenceTimingObserver"
+        ],
+        [
+          "from deepchameleon.models.mixnet import MixNet, MixNetConfig",
+          "from mixture_lco.mixnet import MixNet, MixNetConfig"
+        ],
+        [
+          "install DeepChameleon with the [torch] extra",
+          "install mixture-lco with its declared dependencies"
+        ],
+        [
+          "            abs_tol=1.0e-6,\n",
+          "            # CSV sums were checked exactly; allow only float64 summation roundoff here.\n            abs_tol=1.0e-6 + 4.0 * count * np.finfo(np.float64).eps,\n"
+        ]
+      ]
+    }
+  ]
+}

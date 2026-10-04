@@ -1,0 +1,9 @@
+compound_id,canonical_smiles
+mol-01,O
+mol-02,C
+mol-03,CC
+mol-04,CCC
+mol-05,CO
+mol-06,CCO
+mol-07,CC(=O)O
+mol-08,N

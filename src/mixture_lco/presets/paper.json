@@ -1,0 +1,57 @@
+{
+  "label": "paper-method-defaults",
+  "seeds": [
+    17,
+    42,
+    73
+  ],
+  "split_seed": 20260716,
+  "cv_folds": 5,
+  "eval_folds": 3,
+  "hpo_folds": 5,
+  "validation_fraction": 0.15,
+  "trials": 40,
+  "max_epochs": 60,
+  "patience": 8,
+  "architecture": {
+    "feature_len": 64,
+    "message_heads": 3,
+    "pooling_heads": 3,
+    "gate_hidden": [
+      256
+    ],
+    "message_hidden": [
+      256
+    ],
+    "trunk_hidden": [
+      1024,
+      512
+    ],
+    "head_hidden": [
+      256,
+      128,
+      64
+    ]
+  },
+  "search": {
+    "n_message_layers": [
+      0,
+      1,
+      2
+    ],
+    "learning_rate": [
+      0.0001,
+      0.01
+    ],
+    "weight_decay": [
+      0.001,
+      0.01,
+      0.1
+    ],
+    "batch_size": [
+      32,
+      64,
+      128
+    ]
+  }
+}
